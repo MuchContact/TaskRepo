@@ -27,6 +27,7 @@ public class StockTaskTest {
     public void setUp() throws Exception {
         String Xport = System.getProperty(
                 "lmportal.xvfb.id", ":1");
+        System.setProperty("webdriver.gecko.driver", "/usr/bin/firefox");
         final File firefoxPath = new File(System.getProperty(
                 "lmportal.deploy.firefox.path", "/usr/bin/firefox"));
         FirefoxBinary firefoxBinary = new FirefoxBinary(firefoxPath);
@@ -61,6 +62,7 @@ public class StockTaskTest {
 
     @After
     public void tearDown() throws Exception {
-        driver.quit();
+        if (driver != null)
+            driver.quit();
     }
 }
