@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -32,7 +33,9 @@ public class StockTaskTest {
                 "lmportal.deploy.firefox.path", "/usr/bin/firefox"));
         FirefoxBinary firefoxBinary = new FirefoxBinary(firefoxPath);
         firefoxBinary.setEnvironmentProperty("DISPLAY", Xport);
-        driver = new FirefoxDriver(firefoxBinary, null);
+        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        capabilities.setCapability("marionette", true);
+        driver = new FirefoxDriver(firefoxBinary, null, capabilities);
     }
 
     @Test
