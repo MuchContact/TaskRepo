@@ -1,4 +1,5 @@
 import com.gargoylesoftware.htmlunit.BrowserVersion;
+import com.google.common.collect.ImmutableMap;
 import muco.tasks.fund.Fund;
 import muco.tasks.fund.FundStatus;
 import muco.tasks.fund.util.MessageHelper;
@@ -9,10 +10,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -26,14 +27,11 @@ public class StockTaskTest {
 
     @Before
     public void setUp() throws Exception {
-        String Xport = System.getProperty(
-                "lmportal.xvfb.id", ":1");
-        System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
-        final File firefoxPath = new File(System.getProperty(
-                "lmportal.deploy.firefox.path", "/usr/bin/firefox"));
-        FirefoxBinary firefoxBinary = new FirefoxBinary(firefoxPath);
-        firefoxBinary.setEnvironmentProperty("DISPLAY", Xport);
-        driver = new FirefoxDriver(firefoxBinary, null);
+        ChromeDriverService chromeDriverService = new ChromeDriverService.Builder()
+                .usingDriverExecutable(new File("/trash/chromedriver"))
+                .usingAnyFreePort().withEnvironment(ImmutableMap.of("DISPLAY", ":1")).build();
+        chromeDriverService.start();
+        driver = new ChromeDriver(chromeDriverService);
     }
 
     @Test
