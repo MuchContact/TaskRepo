@@ -28,7 +28,7 @@ public class StockTaskTest {
     @Before
     public void setUp() throws Exception {
         ChromeDriverService chromeDriverService = new ChromeDriverService.Builder()
-                .usingDriverExecutable(new File("/trash/chromedriver"))
+                .usingDriverExecutable(new File("/usr/bin/chromedriver"))
                 .usingAnyFreePort().withEnvironment(ImmutableMap.of("DISPLAY", ":1")).build();
         chromeDriverService.start();
         driver = new ChromeDriver(chromeDriverService);
