@@ -31,11 +31,11 @@ public class StockTaskTest {
         System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
         final File firefoxPath = new File(System.getProperty(
                 "lmportal.deploy.firefox.path", "/usr/bin/firefox"));
-        FirefoxBinary firefoxBinary = new FirefoxBinary(firefoxPath);
+        FirefoxBinary firefoxBinary = new FirefoxBinary();
         firefoxBinary.setEnvironmentProperty("DISPLAY", Xport);
-        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-        capabilities.setCapability("marionette", true);
-        driver = new FirefoxDriver(firefoxBinary, null, capabilities);
+//        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+//        capabilities.setCapability("marionette", true);
+        driver = new FirefoxDriver(firefoxBinary, null);
     }
 
     @Test
