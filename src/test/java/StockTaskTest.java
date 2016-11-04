@@ -27,12 +27,7 @@ public class StockTaskTest {
 
     @Before
     public void setUp() throws Exception {
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-        ChromeDriverService chromeDriverService = new ChromeDriverService.Builder()
-                .usingDriverExecutable(new File("/usr/bin/chromedriver"))
-                .usingAnyFreePort().withEnvironment(ImmutableMap.of("DISPLAY", ":1")).build();
-        chromeDriverService.start();
-        driver = new ChromeDriver(chromeDriverService);
+        driver = new FirefoxDriver();
     }
 
     @Test
