@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
@@ -27,7 +28,15 @@ public class StockTaskTest {
 
     @Before
     public void setUp() throws Exception {
-        driver = new FirefoxDriver();
+        ChromeDriverService chromeDriverService = new ChromeDriverService.Builder()
+                .usingDriverExecutable(new File("/trash/chromedriver"))
+                .usingAnyFreePort()
+                .withEnvironment(ImmutableMap.of("DISPLAY", ":1"))
+                .build();
+        chromeDriverService.start();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("no-sandbox");
+        driver = new ChromeDriver(chromeDriverService, chromeOptions);
     }
 
     @Test
