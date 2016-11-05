@@ -31,13 +31,11 @@ public class StockTaskTest {
         ChromeDriverService chromeDriverService = new ChromeDriverService.Builder()
                 .usingAnyFreePort()
                 .withEnvironment(ImmutableMap.of("DISPLAY", ":1"))
-                .withEnvironment(ImmutableMap.of("no-sandbox", "true"))
                 .build();
         chromeDriverService.start();
-//        ChromeOptions chromeOptions = new ChromeOptions();
-//        chromeOptions.addArguments("no-sandbox");
-//        chromeOptions.setExperimentalOption("display", ":1");
-        driver = new ChromeDriver(chromeDriverService);
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("no-sandbox");
+        driver = new ChromeDriver(chromeDriverService, chromeOptions);
 
     }
 
