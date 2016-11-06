@@ -28,8 +28,7 @@ public class StockTaskTest {
 
     @Before
     public void setUp() throws Exception {
-        driver = new ChromeDriver();
-
+        driver = new FirefoxDriver();
     }
 
     @Test
