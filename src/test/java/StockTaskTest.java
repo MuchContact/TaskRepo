@@ -28,14 +28,7 @@ public class StockTaskTest {
 
     @Before
     public void setUp() throws Exception {
-        ChromeDriverService chromeDriverService = new ChromeDriverService.Builder()
-                .usingAnyFreePort()
-                .withEnvironment(ImmutableMap.of("DISPLAY", ":1"))
-                .build();
-        chromeDriverService.start();
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("no-sandbox");
-        driver = new ChromeDriver(chromeDriverService, chromeOptions);
+        driver = new ChromeDriver();
 
     }
 
