@@ -52,7 +52,11 @@ public class StockTaskTest {
         String crawlingTime = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         Fund fund = new Fund(fundName);
         fund.updateStatus(new FundStatus(netValue, diffInNumber, diffInPercentage, time));
-        boolean result = MessageHelper.generateMessage(fund, crawlingTime);
+        String to = System.getenv("TO");
+        String msg_store_path = System.getenv("MSG_STORE_PATH");
+        assertNotNull(to);
+        assertNotNull(msg_store_path);
+        boolean result = MessageHelper.generateMessage(fund, crawlingTime, to, msg_store_path);
         assertTrue(result);
     }
 

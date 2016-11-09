@@ -11,4 +11,8 @@ public class Fund {
     public void updateStatus(FundStatus fundStatus) {
         this.fundStatus = fundStatus;
     }
+
+    public String string() {
+        return String.format("基金名称:%s\n%s", fundName, fundStatus.string());
+    }
 }

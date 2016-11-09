@@ -12,4 +12,9 @@ public class FundStatus {
         this.diffInPercentage = diffInPercentage;
         this.time = time;
     }
+
+    public String string() {
+        return String.format("净值:%s\n日间变化:%s\n日间变化百分比:%s\n更新时间:%s",
+                netValue, diffInNumber, diffInPercentage, time);
+    }
 }
