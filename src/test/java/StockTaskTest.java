@@ -1,5 +1,3 @@
-import com.gargoylesoftware.htmlunit.BrowserVersion;
-import com.google.common.collect.ImmutableMap;
 import muco.tasks.fund.Fund;
 import muco.tasks.fund.FundStatus;
 import muco.tasks.fund.util.MessageHelper;
@@ -8,15 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -58,13 +49,6 @@ public class StockTaskTest {
         assertNotNull(msg_store_path);
         boolean result = MessageHelper.generateMessage(fund, crawlingTime, to, msg_store_path);
         assertTrue(result);
-    }
-
-    @Test
-    public void name() throws Exception {
-        System.out.printf("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        System.out.printf("中文");
-        System.out.printf("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
     }
 
     @After
