@@ -60,6 +60,11 @@ public class StockTaskTest {
         assertTrue(result);
     }
 
+    @Test
+    public void name() throws Exception {
+        System.out.printf("中文");
+    }
+
     @After
     public void tearDown() throws Exception {
         if (driver != null)
