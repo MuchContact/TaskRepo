@@ -62,7 +62,9 @@ public class StockTaskTest {
 
     @Test
     public void name() throws Exception {
+        System.out.printf("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
         System.out.printf("中文");
+        System.out.printf("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
     }
 
     @After
