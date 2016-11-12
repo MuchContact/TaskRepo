@@ -2,8 +2,6 @@ package muco.tasks.fund.util;
 
 import muco.tasks.fund.Fund;
 
-import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -23,7 +21,7 @@ public class MessageHelper {
             String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
             String newFile = String.format("%s/%s_%s.json", msgStorePath, to, timestamp);
             Path path = Paths.get(newFile);
-            Files.write(path, template.getBytes());
+            Files.write(path, template.getBytes("UTF-8"));
         } catch (Exception e) {
             e.printStackTrace();
             return false;
