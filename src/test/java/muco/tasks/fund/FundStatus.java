@@ -14,7 +14,7 @@ public class FundStatus {
     }
 
     public String string() {
-        return String.format("净值:%s\n日间变化:%s\n日间变化百分比:%s\n更新时间:%s",
+        return String.format("净值:%s##日间变化:%s##日间变化百分比:%s##更新时间:%s",
                 netValue, diffInNumber, diffInPercentage, time);
     }
 }
