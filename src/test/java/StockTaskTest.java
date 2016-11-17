@@ -23,9 +23,19 @@ public class StockTaskTest {
     }
 
     @Test
-    public void should_retrieve_news_data() throws Exception {
-        driver.get("http://fund.eastmoney.com/000311.html");
+    public void should_retrieve_news_data_for_muco() throws Exception {
+        crawlStockData("http://fund.eastmoney.com/000311.html");
+    }
+
+    @Test
+    public void should_retreve_stock_data_for_lordjesusbaby() throws Exception {
+        crawlStockData("http://fund.eastmoney.com/160615.html");
+    }
+
+    private void crawlStockData(String url) {
+        driver.get(url);
         String fundName = driver.findElement(By.className("fundDetail-tit")).findElement(By.tagName("div")).getText();
+        fundName += ")";
         assertNotNull(fundName);
 
         String time = driver.findElement(By.id("gz_gztime")).getText();
